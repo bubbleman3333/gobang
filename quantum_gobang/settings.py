@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import platform
+
+# システムのプラットフォームを取得
+is_linux = platform.system() == "Linux"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!!e4xwl(9q@et4o07_!br!t)q_psu%3&ix)cu+bisa_4eltagb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = not is_linux
 
-ALLOWED_HOSTS = ["bubbleman3003.pythonanywhere.com"]
+ALLOWED_HOSTS = []
+if is_linux:
+    ALLOWED_HOSTS.append("bubbleman3003.pythonanywhere.com")
 
 
 # Application definition
@@ -117,10 +123,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-STATIC_ROOT = "/home/bubbleman3003/gobang/static"
+if is_linux:
+    STATIC_ROOT = "/home/bubbleman3003/gobang/static"
+else:
+    STATICFILES_DIRS = [
+        BASE_DIR / "static",
+    ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
