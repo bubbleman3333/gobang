@@ -229,8 +229,9 @@ function putStoneRequest(y,x,origin_strong) {
       },
       dataType: 'json',
       success: function (data) {
-          // サーバーからのレスポンスを処理
-          console.log(data.message);
+        if(!data.success){
+          document.getElementById("message").textContent=data.message;
+        }
       },
       error: function (error) {
           console.log('Error:', error);
