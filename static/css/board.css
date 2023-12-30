@@ -1,0 +1,56 @@
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden; /* スクロールを無効にする */
+    }
+
+    #outerCanvas {
+      position: flex; /* 外側のキャンバスに対して相対位置を指定 */
+      background-color: #ddb25c; /* 外側のキャンバスの背景色を設定 */
+    }
+
+    .buttons {
+      width:300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-color: #f0f0f0; /* ボタンの背景色 */
+      height: 300px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db; /* ボタンの背景色 */
+      color: #fff; /* ボタンの文字色 */
+      transition: background-color 0.3s;
+    }
+    button:disabled {
+      background-color: #bdc3c7; /* 無効なボタンの背景色 */
+      color: #7f8c8d; /* 無効なボタンの文字色 */
+      cursor: not-allowed; /* カーソルを変更 */
+    }
+    button:hover {
+      background-color: #2980b9; /* ホバー時のボタンの背景色 */
+    }
+
+    #turnIndicator {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    #message {
+      height: 100px;
+      width:300px;
+      font-size: 16px;
+      color: #333; /* メッセージの文字色 */
+    }

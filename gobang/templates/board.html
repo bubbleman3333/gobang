@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/board.css' %}">
+  <title>Centered Canvas</title>
+</head>
+<body>
+  <canvas id="outerCanvas" width = "800px" height="800px">
+  </canvas>
+  <div class="buttons">
+    <div id="turnIndicator">現在のターン: <span id="currentTurn">プレーヤー1</span></div>
+    <button id="gameButton">リセット</button>
+    <button id="strong">強くする</button>
+    <button id="observationButton">  観測  </button>
+    <div id="message"></div>
+  </div>
+</body>
+  <script src="{% static 'js/board.js'%}"></script>
+  <script>window.onload=function(){
+  }</script>
+</html>

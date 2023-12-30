@@ -1,0 +1,42 @@
+<!-- templates/welcome.html -->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        p {
+            margin: 20px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <img src="{% static 'images/gorilla.jpg' %}" alt="Gorilla Image">
+    <p>ようこそ、今日は{{ today|date:"n月j日" }}です。</p>
+    <p><a href="{% url 'play_gobang' %}">五目並べをプレイする</a></p>
+</body>
+</html>
