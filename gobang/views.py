@@ -19,7 +19,6 @@ def show_board(request):
     now = time()
     # 10分以上操作されてないkeyは削除する
     board_dict = {k: v for k, v in board_dict.items() if now - v["last_update"] <= 600}
-    print(len(board_dict))
     if "board_number" in request.session:
         key = request.session.get("board_number")
         if key in board_dict:
