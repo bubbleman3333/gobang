@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from datetime import datetime
+from datetime import datetime, timedelta
 from gobang.src.gobang_board import Gobang
 from gobang.src.common import generate_random_hash
 from time import time
@@ -10,7 +10,7 @@ board_dict = {}
 
 
 def index(request):
-    context = {"today": datetime.now()}
+    context = {"today": datetime.now() + timedelta(hours=9)}
     return render(request, "index.html", context)
 
 
